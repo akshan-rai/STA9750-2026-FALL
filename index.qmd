@@ -1,0 +1,35 @@
+---
+title: "Akshan Rai"
+---
+
+# About Me
+
+Hey! My name is Akshan Rai, and I am a Master's student at Baruch College studing Business Analytics :)
+
+I am currently taking STA 9750, where I am developing my skills in data analysis, statistics, R, and data science.
+
+This website will contain my work for STA 9750, including my mini-projects and course project.
+
+```{r}
+#| include: false
+1+1
+```
+
+---
+
+Last Updated: `r format(Sys.time(), "%A %m %d, %Y at %H:%M%p")`
+
+
+### 3.4 Render it
+
+Now look at the top of the `index.qmd` editor in RStudio.
+
+You should have a **Render** button.
+
+Click **Render**.
+
+If everything is working, Quarto should create a `docs` folder containing your website, including:
+
+```text
+docs/
+└── index.html

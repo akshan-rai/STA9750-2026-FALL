@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Akshan Rai",
+    "section": "",
+    "text": "About Me\nHey! My name is Akshan Rai, and I am a Master’s student at Baruch College studing Business Analytics :)\nI am currently taking STA 9750, where I am developing my skills in data analysis, statistics, R, and data science.\nThis website will contain my work for STA 9750, including my mini-projects and course project.\n\nLast Updated: Monday 10 19, 2026 at 03:10AM\n\n3.4 Render it\nNow look at the top of the index.qmd editor in RStudio.\nYou should have a Render button.\nClick Render.\nIf everything is working, Quarto should create a docs folder containing your website, including:\n```text docs/ └── index.html"
+  }
+]
