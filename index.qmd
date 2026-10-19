@@ -18,18 +18,3 @@ This website will contain my work for STA 9750, including my mini-projects and c
 ---
 
 Last Updated: `r format(Sys.time(), "%A %m %d, %Y at %H:%M%p")`
-
-
-### 3.4 Render it
-
-Now look at the top of the `index.qmd` editor in RStudio.
-
-You should have a **Render** button.
-
-Click **Render**.
-
-If everything is working, Quarto should create a `docs` folder containing your website, including:
-
-```text
-docs/
-└── index.html
