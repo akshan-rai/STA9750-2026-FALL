@@ -1,0 +1,74 @@
+---
+title: "Houston Housing Market - Lab 2"
+author: "Akshan Rai"
+format: revealjs
+editor: visual
+---
+
+## Annual Houses Sold
+::: {.callout-note}
+Houston's housing market has experienced significant changes in sales volume over time.
+:::
+- 2010 had a major dip (likely due to 2008 recession)
+```{r}
+library(tidyverse)
+txhousing |> 
+  filter(city=="Houston") |> 
+  group_by(year) |> 
+  summarize(sales=sum(sales)) |> 
+  ggplot(aes(x=year, y=sales)) + 
+    geom_line() + 
+    ggtitle("Annual Houses Sold in Houston, TX")
+```
+## Average Price by Month
+::: {.callout-note}
+June saw the highest average sale price in the state of Texas
+:::
+- The average sale price does not fluctuate too drastrically between months
+```{r}
+library(tidyverse)
+txhousing |> 
+   filter(city=="Houston") |> 
+    group_by(month) |> 
+    summarize(avg_price=sum(volume) / sum(sales)) |> 
+    mutate(month=factor(month.abb[month], 
+                 levels=month.abb, ordered=TRUE)) |>
+    ggplot(aes(x=month, y=avg_price)) + 
+    geom_bar(stat="identity") + 
+    ggtitle("Average Price of Houses Sold in Texas by Month") + 
+    xlab("Month") + 
+    ylab("Average Sale Price") + 
+    scale_y_continuous(labels = scales::dollar)
+```
+## Average Price by City
+::: {.callout-note}
+Collin County had the highest average sale price at over $300,000 for 2015
+:::
+- Fort Worth had the lowest average sale price
+```{r}
+if(!require("tidyverse")) install.packages("tidyverse")
+library(tidyverse)
+txhousing |> filter(year==2015) |> 
+    group_by(city) |> 
+    summarize(avg_price=sum(volume) / sum(sales),
+              num_sales=sum(sales)) |> 
+    slice_max(num_sales, n=10) |>
+    ggplot(aes(x=city, y=avg_price)) + 
+    geom_bar(stat="identity") + 
+    ggtitle("Average Price of Houses Sold in 2015 by City in Texas") + 
+    xlab("City") + 
+    ylab("Average Sale Price") + 
+    scale_y_continuous(labels = scales::dollar)
+```
+## Conclusion
+::: {.fragment}
+- Houston has experienced changes in the number of homes sold over time.
+:::
+
+::: {.fragment}
+- Average prices vary across different months - early summer months being the highest
+:::
+
+::: {.fragment}
+- Housing prices also differ substantially between major Texas cities.
+:::
