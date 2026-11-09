@@ -750,11 +750,12 @@ The following recipients were recognized during this year's ceremony:
 
 **Large: Tri-County Metropolitan Transportation District of Oregon - 0.097 lbs**
 
-*These metrics were calculated by finding the minimum CO2 pounds per passenger miles value while sorting agencies into small, medium, and large groups. A reference value (median) was used for each group: Small - 1.419, Medium - 1.023, Large - 0.097*
+*These metrics were calculated by finding the minimum CO2 pounds per passenger miles value while sorting agencies into small, medium, and large groups. A reference value (median) was used for each group: Small - 1.419, Medium - 1.023, Large - 0.686*
 
 ```{r}
 #| fig-width: 11
 #| fig-height: 6
+#| code-fold: true
 green_plot_data <- green_winners |>
   inner_join(green_medians, join_by(size == size)) |>
   pivot_longer(cols = c(emissions_per_pmt, median_per_pmt),
@@ -809,6 +810,7 @@ ggplot(green_plot_data, aes(x = label, y = lbs_per_mile, fill = group)) +
 ```{r}
 #| fig-width: 11
 #| fig-height: 6
+#| code-fold: true
 AGENCY_EMISSIONS |>
   slice_max(emissions_avoided_lbs, n = 10) |>
   mutate(tons_avoided = emissions_avoided_lbs / 2000) |>  # 2,000 lbs = 1 short ton
